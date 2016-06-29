@@ -1,0 +1,6 @@
+#!/usr/bin/awk -f
+BEGIN { totalTS = 0; totalTJ = 0;}
+{totalTJ += $4; totalTS += $10;}
+END {
+	printf("the average TJ is %.5f, the average TS is %.5f\n",totalTJ/NR,totalTS/NR); 
+}

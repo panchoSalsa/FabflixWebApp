@@ -1,0 +1,25 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>Insert title here</title>
+</head>
+<body>
+        <h1>READ ME!</h1>
+        <p>
+        # move to this directory
+        <br>
+        cd fabflix/WEB-INF/sources
+        <br>
+        # compile our java files
+        <br>
+		sudo javac -classpath .:../lib/mysql-connector-java-5.0.8-bin.jar:../lib/servlet-api.jar:../lib/javax.json-1.0.jar:../lib/recaptcha4j-0.0.7.jar *.java ./models/*.java ./controller/*.java ./filters/*.java ./mysqljdbc/*.java ./shoppingcart/*.java -d ../classes
+        </p>
+
+	<br>
+	<p>To run the log script: sudo ./awkFile &#60 requests.log </p>
+	<br>
+	<br>
+	<p>master ip: 52.39.177.110 <br> slave ip: 52.26.180.122</p>
+</body>
+</html>

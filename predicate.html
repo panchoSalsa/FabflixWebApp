@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>Insert title here</title>
+</head>
+<body>
+	<h1>Predicate!</h1>
+	<p>The searchbar splits the string 
+	at each space character and checks 
+	each substring with the following 
+	query:
+	
+(title LIKE \'%" + splitsearch[i] + "%\' "
+ + "or year = \'" + splitsearch[i] + "\' "
+ + "or director LIKE \'" + splitsearch[i] + "%\' "
+ + "or director LIKE \'%" + splitsearch[i] + "\' "
+ + "or first_name LIKE \'" + splitsearch[i] + "%\' "
+ + "or last_name LIKE \'" + splitsearch[i] + "%\' ) ";
+        
+Each query is separated with an "AND"
+        
+        
+         
+        	      	  query += " and 
+        System.out.println("query :  " + query);
+      	  
+       query += " GROUP BY movies.id "; 
+	()</p>
+</body>
+</html>

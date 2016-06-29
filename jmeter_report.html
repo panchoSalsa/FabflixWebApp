@@ -1,0 +1,114 @@
+ <!DOCTYPE html>
+<html>
+<head>
+<style>
+body {
+    background-color: linen;
+}
+
+td {
+    border-top-style: solid;
+}
+</style>
+</head>
+<body>
+
+<table style="width:100%">
+  <tr style="font-weight:bold; background-color: orange">
+    <td width="300px">Single-instance version cases</td>
+    <td>Graph Results Screenshot</td>
+    <td>Average Query Time(ms)</td>
+    <td>Average Search Servlet Time(ms)</td>
+    <td>Average JDBC Time(ms)</td>
+    <td>Analysis</td>
+  </tr>
+  <tr>
+    <td>Case 1: HTTP/1 thread</td>
+    <td><img src="${pageContext.request.contextPath}/graph_results/graph_results_case1.png" alt="Graph Results Screenshot Case 1"  style="width:304px;height:228px;"></td>
+    <td>40</td>
+    <td>1478219.85263</td>
+    <td>1315435.75789</td>
+    <td>It takes a shorter amount of time  than ten threads</td>
+  </tr>
+  <tr>
+    <td>Case 2: HTTP/10 threads</td>
+    <td><img src="${pageContext.request.contextPath}/graph_results/graph_results_case2.png" alt="Graph Results Screenshot Case 2" style="width:304px;height:228px;"></td>
+    <td>42</td>
+    <td>2143441.93750</td>
+    <td>2047583.75000</td>
+    <td>Normal case everything will be compared to this</td>
+  </tr>
+  <tr>
+    <td>Case 3: HTTPS/10 threads</td>
+    <td><img src="${pageContext.request.contextPath}/graph_results/graph_results_case3.png" alt="Graph Results Screenshot Case 3" style="width:304px;height:228px;"></td>
+    <td>44</td>
+    <td>2643341.93750</td>
+    <td>2247383.75000</td>
+    <td>Slower than case 2 since https has to make handshake secure connection </td>
+  </tr>
+  <tr>
+    <td>Case 4: HTTP/10 threads/No prepared statements</td>
+    <td><img src="${pageContext.request.contextPath}/graph_results/graph_results_case4.png" alt="Graph Results Screenshot Case 4" style="width:304px;height:228px;"></td>
+    <td>719</td>
+    <td>635594682.28302</td>
+    <td>635480782.35849</td>
+    <td>Increase in time since you have to compile</td>
+  </tr>
+  <tr>
+    <td>Case 5: HTTP/10 threads/No connection pooling</td>
+    <td><img src="${pageContext.request.contextPath}/graph_results/graph_results_case5.png" alt="Graph Results Screenshot Case 4" style="width:304px;height:228px;"></td>
+    <td>63</td>
+    <td>19846406.40541</td>
+    <td>19751020.27027</td>
+    <td>Increase in time since you create a new connection everytime</td>
+  </tr>
+
+</table> 
+
+
+<table style="width:100%">
+  <tr style="font-weight:bold; background-color: orange">
+    <td width="300px">Scaled version cases</td>
+    <td>Graph Results Screenshot</td>
+    <td>Average Query Time(ms)</td>
+    <td>Average Search Servlet Time(ms)</td>
+    <td>Average JDBC Time(ms)</td>
+    <td>Analysis</td>
+  </tr>
+  <tr>
+    <td>Case 1: HTTP/1 thread</td>
+    <td><img src="${pageContext.request.contextPath}/graph_results/graph_results_case2_1.png" alt="Graph Results Screenshot Case 1" style="width:304px;height:228px;"></td>
+    <td>49</td>
+    <td>2570793.52763</td>
+    <td>1947336.63361</td>
+    <td>Using one thread makes a small difference in a scaled application.</td>
+  </tr>
+  <tr>
+    <td>Case 2: HTTP/10 threads</td>
+    <td><img src="${pageContext.request.contextPath}/graph_results/graph_results_case2_2.png" alt="Graph Results Screenshot Case 2" style="width:304px;height:228px;"></td>
+    <td>56</td>
+    <td>1895244.70000</td>
+    <td>1623739.59375</td>
+    <td>Normal case everything will be compared to this. Fastest case because multiple threads can send requests to both servers</td>
+  </tr>
+  <tr>
+    <td>Case 3: HTTP/10 threads/No prepared statements</td>
+    <td><img src="${pageContext.request.contextPath}/graph_results/graph_results_case2_3.png" alt="Graph Results Screenshot Case 4" style="width:304px;height:228px;"></td>
+    <td>423</td>
+    <td>292483038.60145</td>
+    <td>291950630.83333</td>
+    <td>Increase in time since you have to compile</td>
+  </tr>
+  <tr>
+    <td>Case 4: HTTP/10 threads/No connection pooling</td>
+    <td><img src="${pageContext.request.contextPath}/graph_results/graph_results_case2_4.png" alt="Graph Results Screenshot Case 4" style="width:304px;height:228px;"></td>
+    <td>63</td>
+    <td>5382524.84444</td>
+    <td>5150594.22222</td>
+    <td>Increase in time since you create a new connection everytime</td>
+  </tr>
+
+</table> 
+</body>
+</html>
+
